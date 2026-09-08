@@ -132,10 +132,19 @@ app.post("/api/prescriptions/analyze", (req, res) => {
         }
     });
 });
-
+app.get("/api/debug-files", (req, res) => {
+    res.json({
+        dirname: __dirname,
+        cwd: process.cwd(),
+        cssExists: require("fs").existsSync(
+            path.join(__dirname, "css", "variables.css")
+        ),
+        cssPath: path.join(__dirname, "css", "variables.css")
+    });
+});
 // NOTE: Static file serving is registered AFTER API routes intentionally.
 // express.static only handles GET/HEAD — registering it first causes 405 on POST /api/* routes.
-app.use(express.static(__dirname));
+app.use(express.static(path.resolve(__dirname)));
 
 // Fallback to index.html for root navigation
 app.get("/", (req, res) => {
