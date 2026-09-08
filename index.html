@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prescript AI — Turn Handwritten Prescriptions into Clear, Readable Information</title>
+    <meta name="description" content="Prescript AI transforms difficult handwritten doctor prescriptions into clear, structured, readable medical information using AI-assisted handwriting recognition.">
+    <link rel="icon" type="image/svg+xml" href="assets/logo/logo.svg">
+    
+    <!-- Google Fonts: Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Design System Styles -->
+    <link rel="stylesheet" href="css/variables.css">
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/components.css">
+    <link rel="stylesheet" href="css/navbar.css">
+    <link rel="stylesheet" href="css/landing.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <link rel="stylesheet" href="css/dark-mode.css">
+</head>
+<body>
+    <div class="page-wrapper">
+        <!-- Public Navbar -->
+        <header class="navbar">
+            <div class="container navbar-inner">
+                <a href="index.html" class="nav-brand">
+                    <div class="brand-icon">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M12 4v16M4 12h16"/></svg>
+                    </div>
+                    <span class="brand-name">Prescript <span style="color: var(--primary);">AI</span></span>
+                    <span class="brand-tag">Health</span>
+                </a>
+
+                <nav>
+                    <ul class="nav-menu">
+                        <li><a href="index.html" class="nav-link active">Home</a></li>
+                        <li><a href="#how-it-works" class="nav-link">How It Works</a></li>
+                        <li><a href="pages/pricing.html" class="nav-link">Pricing</a></li>
+                        <li><a href="pages/help.html" class="nav-link">Help</a></li>
+                    </ul>
+                </nav>
+
+                <div class="nav-actions">
+                    <!-- Theme Toggle -->
+                    <button class="theme-toggle-btn" aria-label="Toggle Theme">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+                    </button>
+
+                    <a href="pages/login.html" class="btn btn-ghost" style="font-weight: 500;">Login</a>
+                    <a href="pages/upload.html" class="btn btn-primary">Get Started</a>
+
+                    <!-- Mobile Menu Button -->
+                    <button class="mobile-nav-toggle" aria-label="Open Navigation Menu">
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Mobile Drawer -->
+            <div class="mobile-menu-drawer">
+                <div class="mobile-menu-links">
+                    <a href="index.html" class="nav-link active">Home</a>
+                    <a href="#how-it-works" class="nav-link">How It Works</a>
+                    <a href="pages/pricing.html" class="nav-link">Pricing</a>
+                    <a href="pages/help.html" class="nav-link">Help</a>
+                </div>
+                <div class="mobile-menu-actions">
+                    <a href="pages/login.html" class="btn btn-secondary w-full">Login</a>
+                    <a href="pages/upload.html" class="btn btn-primary w-full">Get Started</a>
+                </div>
+            </div>
+        </header>
+
+        <main class="main-content">
+            <!-- Hero Section -->
+            <section class="hero-section">
+                <div class="container">
+                    <div class="hero-grid">
+                        <div class="hero-content">
+                            <span class="eyebrow">AI-ASSISTED PRESCRIPTION READING</span>
+                            <h1 class="text-hero hero-title">Turn handwritten prescriptions into clear, readable information.</h1>
+                            <p class="hero-description">Prescript AI helps transform difficult handwritten prescriptions into structured, readable information using AI-assisted handwriting recognition.</p>
+                            
+                            <div class="hero-actions">
+                                <a href="pages/upload.html" class="btn btn-primary btn-lg">
+                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
+                                    Upload Prescription
+                                </a>
+                                <a href="#how-it-works" class="btn btn-secondary btn-lg">How It Works</a>
+                            </div>
+
+                            <div class="hero-trust-badge">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--primary)" stroke-width="2.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                                <span>Confidence-aware verification &bull; Privacy-first clinical interface</span>
+                            </div>
+                        </div>
+
+                        <!-- Hero Interactive Concept Visual -->
+                        <div class="hero-visual">
+                            <div class="hero-visual-card">
+                                <div class="flow-step-preview">
+                                    <div class="flow-step-header">
+                                        <div class="flex items-center gap-2">
+                                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--primary)" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+                                            <span style="font-size: 0.85rem; font-weight: 600; color: var(--text-primary);">Doctor's Handwritten Note</span>
+                                        </div>
+                                        <span class="flow-step-pill">Original RX</span>
+                                    </div>
+
+                                    <!-- Prescription preview crop -->
+                                    <div style="background-color: #FAF8F5; border: 1px dashed var(--border); border-radius: var(--radius-sm); padding: 0.85rem 1rem;">
+                                        <div style="font-family: 'Times New Roman', serif; font-style: italic; font-size: 1.4rem; color: #315F49; font-weight: bold; margin-bottom: 4px;">℞</div>
+                                        <div style="font-family: 'Segoe Script', cursive, sans-serif; font-size: 1rem; color: #1A314B; line-height: 1.4;">
+                                            1. Cap. Amoxicillin 500mg bd x 5d<br>
+                                            2. Tab. ~~~l~p~~ne 10mg ??
+                                        </div>
+                                    </div>
+
+                                    <div class="flow-connector">
+                                        <span class="pulse-line"></span>
+                                        <div class="flex items-center gap-1" style="background: var(--surface-soft); padding: 4px 10px; border-radius: var(--radius-full); border: 1px solid var(--border);">
+                                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg>
+                                            <span>AI Recognition &amp; Structuring</span>
+                                        </div>
+                                        <span class="pulse-line"></span>
+                                    </div>
+
+                                    <!-- Structured Output Preview -->
+                                    <div class="flow-extracted-sample">
+                                        <div class="flow-med-row">
+                                            <div>
+                                                <div style="font-weight: 600; color: var(--text-primary);">Amoxicillin 500 mg</div>
+                                                <div style="font-size: 0.75rem; color: var(--text-secondary);">Twice daily &bull; 5 days</div>
+                                            </div>
+                                            <span class="badge badge-success">
+                                                <span class="badge-dot"></span> 98% Confident
+                                            </span>
+                                        </div>
+
+                                        <div class="flow-med-row" style="border-left: 3px solid var(--warning); background-color: var(--warning-bg);">
+                                            <div>
+                                                <div style="font-weight: 600; color: #8C6212;">Needs Verification</div>
+                                                <div style="font-size: 0.75rem; color: var(--text-secondary);">Handwriting unclear &bull; Verify with pharmacist</div>
+                                            </div>
+                                            <span class="badge badge-warning">
+                                                <span class="badge-dot"></span> Verify
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- How It Works Section -->
+            <section id="how-it-works" class="section">
+                <div class="container">
+                    <div class="text-center" style="max-width: 620px; margin: 0 auto;">
+                        <span class="eyebrow">SIMPLE FOUR-STEP PROCESS</span>
+                        <h2 class="text-section-title">How It Works</h2>
+                        <p class="text-body" style="margin-top: 0.5rem;">From handwriting to readable medicine schedule in seconds.</p>
+                    </div>
+
+                    <div class="steps-grid">
+                        <div class="step-card">
+                            <div class="step-number">01</div>
+                            <h3 class="step-title">Upload</h3>
+                            <p class="step-desc">Upload a prescription as an image (PNG, JPG) or PDF file directly from your computer or phone.</p>
+                        </div>
+
+                        <div class="step-card">
+                            <div class="step-number">02</div>
+                            <h3 class="step-title">Analyze</h3>
+                            <p class="step-desc">AI-assisted recognition analyzes the handwritten prescription, detecting medicine names, dosage, and schedules.</p>
+                        </div>
+
+                        <div class="step-card">
+                            <div class="step-number">03</div>
+                            <h3 class="step-title">Review</h3>
+                            <p class="step-desc">View the original prescription alongside extracted information in an intuitive side-by-side verification interface.</p>
+                        </div>
+
+                        <div class="step-card">
+                            <div class="step-number">04</div>
+                            <h3 class="step-title">Verify</h3>
+                            <p class="step-desc">Unclear information is clearly flagged for professional verification before taking medication.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Why Prescript AI Feature Grid -->
+            <section class="section" style="background-color: var(--surface);">
+                <div class="container">
+                    <div class="text-center" style="max-width: 620px; margin: 0 auto;">
+                        <span class="eyebrow">HEALTHCARE-FIRST ARCHITECTURE</span>
+                        <h2 class="text-section-title">Why Prescript AI</h2>
+                        <p class="text-body" style="margin-top: 0.5rem;">Designed specifically to overcome doctor handwriting ambiguity with safety safeguards.</p>
+                    </div>
+
+                    <div class="features-grid">
+                        <div class="feature-card">
+                            <div class="feature-icon-wrapper">
+                                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>
+                            </div>
+                            <h3 class="feature-title">Difficult handwriting</h3>
+                            <p class="feature-desc">Make handwritten prescriptions easier to understand by translating complex doctor scripts into clean typography.</p>
+                        </div>
+
+                        <div class="feature-card">
+                            <div class="feature-icon-wrapper">
+                                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18"/><path d="M9 21V9"/></svg>
+                            </div>
+                            <h3 class="feature-title">Structured information</h3>
+                            <p class="feature-desc">Organize medicine name, dosage, frequency, and duration into standardized, scannable data fields.</p>
+                        </div>
+
+                        <div class="feature-card">
+                            <div class="feature-icon-wrapper">
+                                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><circle cx="12" cy="12" r="3"/></svg>
+                            </div>
+                            <h3 class="feature-title">Confidence-aware results</h3>
+                            <p class="feature-desc">Clearly distinguish confident results from uncertain information with explicit visual warnings.</p>
+                        </div>
+
+                        <div class="feature-card">
+                            <div class="feature-icon-wrapper">
+                                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+                            </div>
+                            <h3 class="feature-title">Original comparison</h3>
+                            <p class="feature-desc">View the original prescription alongside extracted information with zoom and pan controls for easy cross-checking.</p>
+                        </div>
+
+                        <div class="feature-card">
+                            <div class="feature-icon-wrapper">
+                                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                            </div>
+                            <h3 class="feature-title">Prescription history</h3>
+                            <p class="feature-desc">Access previously processed prescriptions, track historical treatment regimens, and export digital summaries.</p>
+                        </div>
+
+                        <div class="feature-card">
+                            <div class="feature-icon-wrapper">
+                                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+                            </div>
+                            <h3 class="feature-title">Secure experience</h3>
+                            <p class="feature-desc">Present prescription information in a privacy-conscious interface built according to healthcare confidentiality standards.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Safety Section -->
+            <section class="section safety-section">
+                <div class="container">
+                    <div class="safety-card-large">
+                        <div class="safety-icon-large">
+                            <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+                        </div>
+                        <div class="safety-content">
+                            <h2>Designed with safety in mind.</h2>
+                            <p>Prescript AI assists with reading handwritten prescriptions. It does not diagnose conditions or prescribe medication. Always verify unclear information with a doctor or pharmacist.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Final CTA Section -->
+            <section class="cta-section">
+                <div class="container">
+                    <div class="cta-box">
+                        <h2 class="cta-title">Make difficult prescriptions easier to read.</h2>
+                        <p class="cta-desc">Upload a prescription and see how Prescript AI can organize the information with clarity and safety safeguards.</p>
+                        <a href="pages/upload.html" class="btn btn-primary btn-lg">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
+                            Upload Prescription
+                        </a>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <!-- Footer -->
+        <footer class="app-footer">
+            <div class="container">
+                <div class="footer-top">
+                    <div class="footer-brand">
+                        <a href="index.html" class="nav-brand">
+                            <div class="brand-icon">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 4v16M4 12h16"/></svg>
+                            </div>
+                            <span class="brand-name">Prescript <span style="color: var(--primary);">AI</span></span>
+                        </a>
+                        <p>AI-assisted prescription reading platform designed to make handwritten doctor instructions structured, readable, and safe.</p>
+                    </div>
+
+                    <div class="footer-col">
+                        <h4>Navigation</h4>
+                        <ul>
+                            <li><a href="index.html">Home</a></li>
+                            <li><a href="#how-it-works">How It Works</a></li>
+                            <li><a href="pages/pricing.html">Pricing</a></li>
+                            <li><a href="pages/help.html">Help &amp; FAQ</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="footer-col">
+                        <h4>Platform</h4>
+                        <ul>
+                            <li><a href="pages/dashboard.html">Dashboard</a></li>
+                            <li><a href="pages/upload.html">Upload Prescription</a></li>
+                            <li><a href="pages/history.html">History</a></li>
+                            <li><a href="pages/account.html">My Account</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="footer-col">
+                        <h4>Legal &amp; Trust</h4>
+                        <ul>
+                            <li><a href="pages/help.html">Clinical Disclaimer</a></li>
+                            <li><a href="pages/help.html">Privacy Policy</a></li>
+                            <li><a href="pages/help.html">Terms of Service</a></li>
+                            <li><a href="pages/help.html">Safety Guidelines</a></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="footer-bottom">
+                    <p class="footer-disclaimer">Prescript AI assists users in reading prescriptions. It does not diagnose diseases, recommend therapies, or prescribe medication. Always verify medication names, dosages, and schedules with a certified physician or licensed pharmacist.</p>
+                    <p class="footer-copyright">&copy; 2026 Prescript AI Healthcare Technologies. All rights reserved.</p>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <!-- Scripts -->
+    <script src="js/mock-data.js"></script>
+    <script src="js/api.js"></script>
+    <script src="js/ui.js"></script>
+    <script src="js/theme.js"></script>
+    <script src="js/navigation.js"></script>
+    <script src="js/app.js"></script>
+</body>
+</html>

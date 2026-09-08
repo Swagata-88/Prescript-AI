@@ -1,0 +1,120 @@
+/* ==========================================================================
+   PRESCRIPT AI — DARK MODE SPECIFICATION
+   ========================================================================== */
+
+[data-theme="dark"] {
+    --background: #101814;
+    --surface: #17221C;
+    --surface-soft: #1D2B24;
+
+    --primary: #72B08F;
+    --primary-hover: #82BD9D;
+    --primary-dark: #5C9F7D;
+    --primary-deep: #A7D8BD;
+    --primary-light: #1D2E25;
+    --primary-ring: rgba(114, 176, 143, 0.28);
+
+    --text-primary: #E8F1EC;
+    --text-secondary: #9EADA5;
+    --text-light: #7F9188;
+
+    --border: #2A3931;
+    --border-light: #213028;
+
+    --white: #141F18; /* Surface card tint in dark mode */
+
+    --shadow-sm: 0 2px 10px rgba(0, 0, 0, 0.35);
+    --shadow-md: 0 8px 30px rgba(0, 0, 0, 0.45);
+    --shadow-lg: 0 14px 45px rgba(0, 0, 0, 0.6);
+
+    /* Badge & Warning dark adjustments */
+    --success-bg: #152A20;
+    --success-border: #254F3A;
+    --warning-bg: #2B2414;
+    --warning-border: #4D3D1B;
+    --danger-bg: #2B1616;
+    --danger-border: #522727;
+}
+
+[data-theme="dark"] .navbar {
+    background-color: rgba(16, 24, 20, 0.88);
+    border-bottom-color: var(--border);
+}
+
+[data-theme="dark"] .mobile-menu-drawer {
+    background-color: #141F18;
+}
+
+[data-theme="dark"] .user-dropdown {
+    background-color: #141F18;
+}
+
+[data-theme="dark"] .card {
+    background-color: var(--white);
+    border-color: var(--border);
+}
+
+[data-theme="dark"] .card-soft {
+    background-color: var(--surface);
+}
+
+[data-theme="dark"] .form-input {
+    background-color: #17221C;
+    border-color: var(--border);
+    color: var(--text-primary);
+}
+
+[data-theme="dark"] .form-input:focus {
+    background-color: #1A2720;
+}
+
+[data-theme="dark"] .badge-warning {
+    color: #F1C46E;
+}
+
+[data-theme="dark"] .badge-success {
+    color: #79CAA0;
+}
+
+[data-theme="dark"] .badge-danger {
+    color: #F18A8A;
+}
+
+[data-theme="dark"] .warning-card-title {
+    color: #F1C46E;
+}
+
+[data-theme="dark"] .warning-card-instruction {
+    color: #F1C46E;
+}
+
+[data-theme="dark"] .warning-card-danger .warning-card-title {
+    color: #F18A8A;
+}
+
+[data-theme="dark"] .warning-card-danger .warning-card-instruction {
+    color: #F18A8A;
+}
+
+[data-theme="dark"] .app-footer {
+    background-color: #0E1511;
+}
+
+[data-theme="dark"] .btn-primary {
+    background-color: var(--primary);
+    color: #101814;
+    font-weight: 600;
+}
+
+[data-theme="dark"] .btn-primary:hover {
+    background-color: var(--primary-hover);
+}
+
+[data-theme="dark"] .brand-icon {
+    background-color: #1A2821;
+    color: var(--primary);
+}
+
+[data-theme="dark"] .user-avatar {
+    color: #101814;
+}

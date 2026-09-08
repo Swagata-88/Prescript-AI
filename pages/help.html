@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Help &amp; FAQs — Prescript AI</title>
+    <link rel="icon" type="image/svg+xml" href="../assets/logo/logo.svg">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="../css/variables.css">
+    <link rel="stylesheet" href="../css/reset.css">
+    <link rel="stylesheet" href="../css/base.css">
+    <link rel="stylesheet" href="../css/components.css">
+    <link rel="stylesheet" href="../css/navbar.css">
+    <link rel="stylesheet" href="../css/help.css">
+    <link rel="stylesheet" href="../css/responsive.css">
+    <link rel="stylesheet" href="../css/dark-mode.css">
+</head>
+<body>
+    <div class="page-wrapper">
+        <!-- Universal Navbar -->
+        <header class="navbar">
+            <div class="container navbar-inner">
+                <a href="../index.html" class="nav-brand">
+                    <div class="brand-icon">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M12 4v16M4 12h16"/></svg>
+                    </div>
+                    <span class="brand-name">Prescript <span style="color: var(--primary);">AI</span></span>
+                </a>
+
+                <nav>
+                    <ul class="nav-menu">
+                        <li><a href="dashboard.html" class="nav-link">Dashboard</a></li>
+                        <li><a href="upload.html" class="nav-link">Upload</a></li>
+                        <li><a href="history.html" class="nav-link">History</a></li>
+                        <li><a href="pricing.html" class="nav-link">Pricing</a></li>
+                        <li><a href="help.html" class="nav-link active">Help</a></li>
+                    </ul>
+                </nav>
+
+                <div class="nav-actions">
+                    <!-- Theme Toggle -->
+                    <button class="theme-toggle-btn" aria-label="Toggle Theme">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+                    </button>
+
+                    <!-- User Profile Dropdown -->
+                    <div class="user-menu-wrapper">
+                        <button class="user-menu-btn" aria-label="User account menu">
+                            <span class="user-avatar">SR</span>
+                            <span class="user-name-label">Swagata</span>
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+                        </button>
+                        <div class="user-dropdown">
+                            <div class="dropdown-header">
+                                <div class="dropdown-user-name">Dr. Swagata Roy</div>
+                                <div class="dropdown-user-email">swagata.roy@prescriptai.org</div>
+                            </div>
+                            <a href="account.html" class="dropdown-item">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+                                Account Settings
+                            </a>
+                            <a href="pricing.html" class="dropdown-item">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="5" width="20" height="14" rx="2"/><line x1="2" y1="10" x2="22" y2="10"/></svg>
+                                Subscription Plan
+                            </a>
+                            <a href="help.html" class="dropdown-item">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+                                Help &amp; FAQs
+                            </a>
+                            <div class="dropdown-divider"></div>
+                            <a href="#" class="dropdown-item action-logout" style="color: var(--danger);">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" y1="12" x2="9" y2="12"/></svg>
+                                Sign Out
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Mobile Menu Button -->
+                    <button class="mobile-nav-toggle" aria-label="Open Navigation Menu">
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Mobile Drawer -->
+            <div class="mobile-menu-drawer">
+                <div class="mobile-menu-links">
+                    <a href="dashboard.html" class="nav-link">Dashboard</a>
+                    <a href="upload.html" class="nav-link">Upload</a>
+                    <a href="history.html" class="nav-link">History</a>
+                    <a href="pricing.html" class="nav-link">Pricing</a>
+                    <a href="account.html" class="nav-link">Account</a>
+                    <a href="help.html" class="nav-link active">Help</a>
+                </div>
+                <div class="mobile-menu-actions">
+                    <a href="#" class="btn btn-secondary w-full action-logout">Sign Out</a>
+                </div>
+            </div>
+        </header>
+
+        <main class="main-content">
+            <div class="container section-sm">
+                <div class="help-container">
+                    <div class="help-header">
+                        <span class="eyebrow">FREQUENTLY ASKED QUESTIONS</span>
+                        <h1 class="text-page-title">Help &amp; Clinical Guidance</h1>
+                        <p class="text-body" style="margin-top: 0.35rem;">Answers to common questions about handwriting recognition, safety, and upload limits.</p>
+                    </div>
+
+                    <!-- FAQ Accordion List -->
+                    <div class="faq-list">
+                        <!-- Q1 -->
+                        <div class="faq-item open">
+                            <button type="button" class="faq-question-btn">
+                                <span>What file formats can I upload?</span>
+                                <svg class="faq-chevron" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+                            </button>
+                            <div class="faq-answer">
+                                PNG, JPG, JPEG, and PDF. Ensure your image has decent lighting and that doctor notes are in focus for the most accurate analysis.
+                            </div>
+                        </div>
+
+                        <!-- Q2 -->
+                        <div class="faq-item">
+                            <button type="button" class="faq-question-btn">
+                                <span>Can Prescript AI read every handwriting style?</span>
+                                <svg class="faq-chevron" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+                            </button>
+                            <div class="faq-answer">
+                                No. Some handwriting may be difficult or impossible to interpret accurately. In these situations, our model marks the item with a clear caution status rather than guessing.
+                            </div>
+                        </div>
+
+                        <!-- Q3 -->
+                        <div class="faq-item">
+                            <button type="button" class="faq-question-btn">
+                                <span>What happens when the AI is uncertain?</span>
+                                <svg class="faq-chevron" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+                            </button>
+                            <div class="faq-answer">
+                                The information is clearly marked for verification. We display a prominent warning card advising you to cross-check with your prescribing physician or a licensed pharmacist.
+                            </div>
+                        </div>
+
+                        <!-- Q4 -->
+                        <div class="faq-item">
+                            <button type="button" class="faq-question-btn">
+                                <span>Can Prescript AI prescribe medicine?</span>
+                                <svg class="faq-chevron" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+                            </button>
+                            <div class="faq-answer">
+                                No. Prescript AI assists with reading prescription information and does not prescribe medication, suggest alterations to dosages, or diagnose clinical conditions.
+                            </div>
+                        </div>
+
+                        <!-- Q5 -->
+                        <div class="faq-item">
+                            <button type="button" class="faq-question-btn">
+                                <span>Should I trust an extracted medicine name?</span>
+                                <svg class="faq-chevron" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+                            </button>
+                            <div class="faq-answer">
+                                Always verify unclear information with a doctor or pharmacist. Prescript AI provides side-by-side zoom controls so you can inspect the doctor's pen strokes directly alongside the AI results.
+                            </div>
+                        </div>
+
+                        <!-- Q6 -->
+                        <div class="faq-item">
+                            <button type="button" class="faq-question-btn">
+                                <span>How does the upload limit work?</span>
+                                <svg class="faq-chevron" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+                            </button>
+                            <div class="faq-answer">
+                                On the Free Starter plan, you receive 2 prescription scans per 24-hour cycle. The counter resets automatically every 24 hours. For clinics or higher daily needs, our Basic, Pro, and Premium tiers offer higher daily limits.
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Clinical Support Box -->
+                    <div class="support-contact-box">
+                        <div class="flex items-center justify-center gap-2" style="margin-bottom: 0.5rem; font-weight: 700; font-size: 1.2rem; color: var(--text-primary);">
+                            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--primary)" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                            <span>Need help or technical assistance?</span>
+                        </div>
+                        <p style="font-size: 0.95rem; color: var(--text-secondary); max-width: 480px; margin: 0 auto 1.5rem;">Our healthcare engineering team is available for hackathon inquiries, integration questions, and clinical feedback.</p>
+                        <button type="button" class="btn btn-primary" onclick="window.UI.showToast('Support ticket initiated: support@prescriptai.org', 'info')">
+                            Contact Support Team
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <!-- Footer -->
+        <footer class="app-footer">
+            <div class="container">
+                <div class="footer-bottom">
+                    <p class="footer-disclaimer">Prescript AI assists users in reading prescriptions. It does not diagnose diseases or prescribe medication. Always verify unclear information with a doctor or pharmacist.</p>
+                    <p class="footer-copyright">&copy; 2026 Prescript AI. All rights reserved.</p>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <!-- Scripts -->
+    <script src="../js/mock-data.js"></script>
+    <script src="../js/api.js"></script>
+    <script src="../js/ui.js"></script>
+    <script src="../js/theme.js"></script>
+    <script src="../js/navigation.js"></script>
+    <script src="../js/app.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const faqItems = document.querySelectorAll('.faq-item');
+            faqItems.forEach(item => {
+                const btn = item.querySelector('.faq-question-btn');
+                btn.addEventListener('click', () => {
+                    const isOpen = item.classList.contains('open');
+                    // Close all
+                    faqItems.forEach(i => i.classList.remove('open'));
+                    // Toggle current
+                    if (!isOpen) {
+                        item.classList.add('open');
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>

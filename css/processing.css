@@ -1,0 +1,143 @@
+/* ==========================================================================
+   PRESCRIPT AI — PROCESSING PAGE STYLES
+   ========================================================================== */
+
+.processing-container {
+    max-width: 580px;
+    margin: 3rem auto;
+    text-align: center;
+}
+
+.processing-card {
+    background-color: var(--white);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    padding: 3rem 2.5rem;
+    box-shadow: var(--shadow-md);
+}
+
+.processing-visual {
+    position: relative;
+    width: 80px;
+    height: 80px;
+    margin: 0 auto 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.processing-pulse-ring {
+    position: absolute;
+    inset: 0;
+    border-radius: 50%;
+    border: 2px solid var(--primary);
+    animation: gentle-pulse 2s infinite cubic-bezier(0.4, 0, 0.6, 1);
+    opacity: 0.6;
+}
+
+.processing-center-icon {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background-color: var(--surface-soft);
+    border: 1px solid var(--border);
+    color: var(--primary-deep);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    z-index: 2;
+}
+
+@keyframes gentle-pulse {
+    0% { transform: scale(0.9); opacity: 0.8; }
+    50% { transform: scale(1.15); opacity: 0.25; }
+    100% { transform: scale(0.9); opacity: 0.8; }
+}
+
+.processing-title {
+    font-size: 1.65rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: 0.5rem;
+}
+
+.processing-subtitle {
+    font-size: 0.95rem;
+    color: var(--text-secondary);
+    margin-bottom: 2.25rem;
+    line-height: 1.5;
+}
+
+/* Linear Progress Bar */
+.processing-progress-wrap {
+    margin-bottom: 2.25rem;
+}
+
+.processing-progress-meta {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+}
+
+/* Sequential Stage Checklist */
+.processing-stages {
+    display: flex;
+    flex-direction: column;
+    gap: 0.85rem;
+    text-align: left;
+    background-color: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-md);
+    padding: 1.5rem;
+}
+
+.stage-item {
+    display: flex;
+    align-items: center;
+    gap: 0.85rem;
+    font-size: 0.925rem;
+    color: var(--text-light);
+    transition: all var(--transition-normal);
+}
+
+.stage-icon {
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    font-size: 0.75rem;
+    font-weight: bold;
+}
+
+/* Stage States */
+.stage-item.pending .stage-icon {
+    border: 1.5px solid var(--border);
+    color: var(--text-light);
+}
+
+.stage-item.active {
+    color: var(--text-primary);
+    font-weight: 600;
+}
+
+.stage-item.active .stage-icon {
+    background-color: var(--surface-soft);
+    border: 2px solid var(--primary);
+    color: var(--primary);
+}
+
+.stage-item.completed {
+    color: var(--text-primary);
+}
+
+.stage-item.completed .stage-icon {
+    background-color: var(--success);
+    color: var(--white);
+}

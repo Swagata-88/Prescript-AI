@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prescription Analysis Result — Prescript AI</title>
+    <link rel="icon" type="image/svg+xml" href="../assets/logo/logo.svg">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="../css/variables.css">
+    <link rel="stylesheet" href="../css/reset.css">
+    <link rel="stylesheet" href="../css/base.css">
+    <link rel="stylesheet" href="../css/components.css">
+    <link rel="stylesheet" href="../css/navbar.css">
+    <link rel="stylesheet" href="../css/result.css">
+    <link rel="stylesheet" href="../css/responsive.css">
+    <link rel="stylesheet" href="../css/dark-mode.css">
+</head>
+<body>
+    <div class="page-wrapper">
+        <!-- Authenticated Navbar -->
+        <header class="navbar">
+            <div class="container navbar-inner">
+                <a href="dashboard.html" class="nav-brand">
+                    <div class="brand-icon">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M12 4v16M4 12h16"/></svg>
+                    </div>
+                    <span class="brand-name">Prescript <span style="color: var(--primary);">AI</span></span>
+                </a>
+
+                <nav>
+                    <ul class="nav-menu">
+                        <li><a href="dashboard.html" class="nav-link">Dashboard</a></li>
+                        <li><a href="upload.html" class="nav-link">Upload</a></li>
+                        <li><a href="history.html" class="nav-link">History</a></li>
+                        <li><a href="pricing.html" class="nav-link">Pricing</a></li>
+                    </ul>
+                </nav>
+
+                <div class="nav-actions">
+                    <!-- Theme Toggle -->
+                    <button class="theme-toggle-btn" aria-label="Toggle Theme">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+                    </button>
+
+                    <!-- User Profile Dropdown -->
+                    <div class="user-menu-wrapper">
+                        <button class="user-menu-btn" aria-label="User account menu">
+                            <span class="user-avatar">SR</span>
+                            <span class="user-name-label">Swagata</span>
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+                        </button>
+                        <div class="user-dropdown">
+                            <div class="dropdown-header">
+                                <div class="dropdown-user-name">Dr. Swagata Roy</div>
+                                <div class="dropdown-user-email">swagata.roy@prescriptai.org</div>
+                            </div>
+                            <a href="account.html" class="dropdown-item">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+                                Account Settings
+                            </a>
+                            <a href="pricing.html" class="dropdown-item">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="5" width="20" height="14" rx="2"/><line x1="2" y1="10" x2="22" y2="10"/></svg>
+                                Subscription Plan
+                            </a>
+                            <a href="help.html" class="dropdown-item">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+                                Help &amp; FAQs
+                            </a>
+                            <div class="dropdown-divider"></div>
+                            <a href="#" class="dropdown-item action-logout" style="color: var(--danger);">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" y1="12" x2="9" y2="12"/></svg>
+                                Sign Out
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Mobile Menu Button -->
+                    <button class="mobile-nav-toggle" aria-label="Open Navigation Menu">
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Mobile Drawer -->
+            <div class="mobile-menu-drawer">
+                <div class="mobile-menu-links">
+                    <a href="dashboard.html" class="nav-link">Dashboard</a>
+                    <a href="upload.html" class="nav-link">Upload</a>
+                    <a href="history.html" class="nav-link">History</a>
+                    <a href="pricing.html" class="nav-link">Pricing</a>
+                    <a href="account.html" class="nav-link">Account</a>
+                    <a href="help.html" class="nav-link">Help</a>
+                </div>
+                <div class="mobile-menu-actions">
+                    <a href="#" class="btn btn-secondary w-full action-logout">Sign Out</a>
+                </div>
+            </div>
+        </header>
+
+        <main class="main-content">
+            <div class="container section-sm">
+                <!-- Top Header -->
+                <div class="result-page-header">
+                    <div>
+                        <div class="flex items-center gap-2">
+                            <span class="eyebrow" style="margin-bottom: 0;">PRESCRIPTION RESULT</span>
+                            <span id="summary-status-badge" class="badge badge-warning">
+                                <span class="badge-dot"></span> Needs verification
+                            </span>
+                        </div>
+                        <h1 class="text-page-title" style="margin-top: 0.4rem;" id="rx-header-id">RX-2026-081</h1>
+                        <p class="text-body-sm" id="rx-header-meta">Uploaded on Sep 08, 2026 • Processed with Clinical AI</p>
+                    </div>
+
+                    <div class="result-header-actions">
+                        <button type="button" id="print-summary-btn" class="btn btn-secondary btn-sm">
+                            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 6 2 18 2 18 9"/><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><rect x="6" y="14" width="12" height="8"/></svg>
+                            Print Summary
+                        </button>
+                        <button type="button" id="share-summary-btn" class="btn btn-secondary btn-sm">
+                            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg>
+                            Copy Link
+                        </button>
+                        <a href="upload.html" class="btn btn-primary btn-sm">
+                            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+                            Scan Another
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Two-Panel Split Layout -->
+                <div class="result-layout">
+                    <!-- LEFT PANEL: Original Prescription -->
+                    <div class="original-panel">
+                        <div class="panel-header">
+                            <div class="panel-title">
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--primary)" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+                                <span>Original Prescription</span>
+                            </div>
+                            
+                            <!-- Zoom Controls -->
+                            <div class="zoom-controls">
+                                <button type="button" class="zoom-btn" id="zoom-out-btn" title="Zoom out" aria-label="Zoom out">
+                                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/></svg>
+                                </button>
+                                <span class="zoom-level-text" id="zoom-level-text">100%</span>
+                                <button type="button" class="zoom-btn" id="zoom-in-btn" title="Zoom in" aria-label="Zoom in">
+                                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+                                </button>
+                                <button type="button" class="zoom-btn" id="zoom-reset-btn" title="Reset zoom" aria-label="Reset zoom">
+                                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/><polyline points="3 3 3 8 8 8"/></svg>
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Image Viewport -->
+                        <div class="original-viewport">
+                            <div class="original-img-wrapper" id="original-img-wrapper">
+                                <img src="../assets/images/sample-prescription.svg" alt="Doctor's original prescription" class="original-prescription-img" id="original-rx-image">
+                            </div>
+                        </div>
+
+                        <div class="panel-footer-meta">
+                            <span id="rx-filename">sample_prescription.png</span>
+                            <span id="rx-filesize">1.4 MB • PNG</span>
+                        </div>
+                    </div>
+
+                    <!-- RIGHT PANEL: Extracted Information -->
+                    <div class="extracted-panel">
+                        <!-- Prescription Summary Card -->
+                        <div class="summary-card">
+                            <div class="summary-header">
+                                <h3 class="summary-title">Prescription Summary</h3>
+                                <span class="text-metadata">AI Extraction Result</span>
+                            </div>
+                            <div class="summary-counts">
+                                <span class="summary-stat" id="summary-total-count">3 medicines detected</span>
+                                <span class="summary-stat" id="summary-verify-count">• 1 requires verification</span>
+                            </div>
+                        </div>
+
+                        <!-- Doctor & Patient Context Box -->
+                        <div class="rx-context-box">
+                            <div>
+                                <span class="med-label">Attending Physician</span>
+                                <div style="font-weight: 600; color: var(--text-primary);" id="ctx-doctor-name">Dr. Arthur Vance, MD</div>
+                            </div>
+                            <div>
+                                <span class="med-label">Patient</span>
+                                <div style="font-weight: 600; color: var(--text-primary);" id="ctx-patient-name">Rajesh Sharma (42 Yrs, Male)</div>
+                            </div>
+                        </div>
+
+                        <!-- Extracted Medicine Cards List (Includes High-Confidence & Uncertain States) -->
+                        <div class="medicines-list" id="medicines-container">
+                            <!-- Populated dynamically by js/result.js -->
+                        </div>
+
+                        <!-- Section 18: Compact Safety Notice on Result Page -->
+                        <div class="safety-banner">
+                            <div class="safety-icon">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+                            </div>
+                            <div class="safety-text">
+                                <strong>Safety Notice:</strong> AI-assisted reading only. Always verify unclear prescription information with a doctor or pharmacist.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <!-- Footer -->
+        <footer class="app-footer">
+            <div class="container">
+                <div class="footer-bottom">
+                    <p class="footer-disclaimer">Prescript AI assists users in reading prescriptions. It does not diagnose diseases or prescribe medication. Always verify unclear information with a doctor or pharmacist.</p>
+                    <p class="footer-copyright">&copy; 2026 Prescript AI. All rights reserved.</p>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <!-- Scripts -->
+    <script src="../js/mock-data.js"></script>
+    <script src="../js/api.js"></script>
+    <script src="../js/ui.js"></script>
+    <script src="../js/theme.js"></script>
+    <script src="../js/navigation.js"></script>
+    <script src="../js/result.js"></script>
+    <script src="../js/app.js"></script>
+</body>
+</html>

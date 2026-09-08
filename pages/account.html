@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Account Settings — Prescript AI</title>
+    <link rel="icon" type="image/svg+xml" href="../assets/logo/logo.svg">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="../css/variables.css">
+    <link rel="stylesheet" href="../css/reset.css">
+    <link rel="stylesheet" href="../css/base.css">
+    <link rel="stylesheet" href="../css/components.css">
+    <link rel="stylesheet" href="../css/navbar.css">
+    <link rel="stylesheet" href="../css/account.css">
+    <link rel="stylesheet" href="../css/responsive.css">
+    <link rel="stylesheet" href="../css/dark-mode.css">
+</head>
+<body>
+    <div class="page-wrapper">
+        <!-- Authenticated Navbar -->
+        <header class="navbar">
+            <div class="container navbar-inner">
+                <a href="dashboard.html" class="nav-brand">
+                    <div class="brand-icon">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M12 4v16M4 12h16"/></svg>
+                    </div>
+                    <span class="brand-name">Prescript <span style="color: var(--primary);">AI</span></span>
+                </a>
+
+                <nav>
+                    <ul class="nav-menu">
+                        <li><a href="dashboard.html" class="nav-link">Dashboard</a></li>
+                        <li><a href="upload.html" class="nav-link">Upload</a></li>
+                        <li><a href="history.html" class="nav-link">History</a></li>
+                        <li><a href="pricing.html" class="nav-link">Pricing</a></li>
+                    </ul>
+                </nav>
+
+                <div class="nav-actions">
+                    <!-- Theme Toggle -->
+                    <button class="theme-toggle-btn" aria-label="Toggle Theme">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+                    </button>
+
+                    <!-- User Profile Dropdown -->
+                    <div class="user-menu-wrapper">
+                        <button class="user-menu-btn" aria-label="User account menu">
+                            <span class="user-avatar">SR</span>
+                            <span class="user-name-label">Swagata</span>
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+                        </button>
+                        <div class="user-dropdown">
+                            <div class="dropdown-header">
+                                <div class="dropdown-user-name">Dr. Swagata Roy</div>
+                                <div class="dropdown-user-email">swagata.roy@prescriptai.org</div>
+                            </div>
+                            <a href="account.html" class="dropdown-item">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+                                Account Settings
+                            </a>
+                            <a href="pricing.html" class="dropdown-item">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="5" width="20" height="14" rx="2"/><line x1="2" y1="10" x2="22" y2="10"/></svg>
+                                Subscription Plan
+                            </a>
+                            <a href="help.html" class="dropdown-item">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+                                Help &amp; FAQs
+                            </a>
+                            <div class="dropdown-divider"></div>
+                            <a href="#" class="dropdown-item action-logout" style="color: var(--danger);">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" y1="12" x2="9" y2="12"/></svg>
+                                Sign Out
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Mobile Menu Button -->
+                    <button class="mobile-nav-toggle" aria-label="Open Navigation Menu">
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Mobile Drawer -->
+            <div class="mobile-menu-drawer">
+                <div class="mobile-menu-links">
+                    <a href="dashboard.html" class="nav-link">Dashboard</a>
+                    <a href="upload.html" class="nav-link">Upload</a>
+                    <a href="history.html" class="nav-link">History</a>
+                    <a href="pricing.html" class="nav-link">Pricing</a>
+                    <a href="account.html" class="nav-link active">Account</a>
+                    <a href="help.html" class="nav-link">Help</a>
+                </div>
+                <div class="mobile-menu-actions">
+                    <a href="#" class="btn btn-secondary w-full action-logout">Sign Out</a>
+                </div>
+            </div>
+        </header>
+
+        <main class="main-content">
+            <div class="container section-sm">
+                <div class="account-container">
+                    <div>
+                        <h1 class="text-page-title">My Account</h1>
+                        <p class="text-body" style="margin-top: 0.25rem;">Manage your profile, active subscription plan, and security preferences.</p>
+                    </div>
+
+                    <!-- Section 1: Profile -->
+                    <div class="card">
+                        <div class="account-card-header">
+                            <div class="account-card-title">
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--primary)" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+                                <span>Profile Information</span>
+                            </div>
+                            <button type="button" class="btn btn-ghost btn-sm" style="color: var(--primary-deep);" onclick="window.UI.showToast('Profile updated', 'success')">
+                                Edit
+                            </button>
+                        </div>
+
+                        <div class="account-fields-grid">
+                            <div class="account-field-item">
+                                <span class="account-field-label">Full Name</span>
+                                <span class="account-field-value" id="profile-name">Dr. Swagata Roy</span>
+                            </div>
+                            <div class="account-field-item">
+                                <span class="account-field-label">Email Address</span>
+                                <span class="account-field-value" id="profile-email">swagata.roy@prescriptai.org</span>
+                            </div>
+                            <div class="account-field-item">
+                                <span class="account-field-label">Role</span>
+                                <span class="account-field-value">Healthcare Professional</span>
+                            </div>
+                            <div class="account-field-item">
+                                <span class="account-field-label">Account Created</span>
+                                <span class="account-field-value">January 15, 2026</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Section 2: Subscription -->
+                    <div class="card">
+                        <div class="account-card-header">
+                            <div class="account-card-title">
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--primary)" stroke-width="2"><rect x="2" y="5" width="20" height="14" rx="2"/><line x1="2" y1="10" x2="22" y2="10"/></svg>
+                                <span>Subscription &amp; Usage</span>
+                            </div>
+                            <a href="pricing.html" class="btn btn-secondary btn-sm">
+                                Change Plan
+                            </a>
+                        </div>
+
+                        <div class="account-fields-grid" style="margin-bottom: 1.5rem;">
+                            <div class="account-field-item">
+                                <span class="account-field-label">Current Plan</span>
+                                <span class="account-field-value" style="font-weight: 700; color: var(--primary-deep);" id="account-plan-name">Free Plan</span>
+                            </div>
+                            <div class="account-field-item">
+                                <span class="account-field-label">Subscription Status</span>
+                                <div>
+                                    <span class="badge badge-success">
+                                        <span class="badge-dot"></span> Active
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="account-field-item">
+                                <span class="account-field-label">Plan Validity</span>
+                                <span class="account-field-value">Renews in 24 hours</span>
+                            </div>
+                            <div class="account-field-item">
+                                <span class="account-field-label">Daily Limit</span>
+                                <span class="account-field-value" id="account-plan-limit">2 scans / 24 hours</span>
+                            </div>
+                        </div>
+
+                        <div>
+                            <div class="flex justify-between items-center" style="font-size: 0.85rem; margin-bottom: 0.4rem;">
+                                <span style="font-weight: 500;">Today's Upload Quota</span>
+                                <span style="color: var(--text-secondary);" id="account-quota-ratio">1 / 2 used</span>
+                            </div>
+                            <div class="progress-bar-container">
+                                <div class="progress-bar-fill" id="account-quota-bar" style="width: 50%;"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Section 3: Security -->
+                    <div class="card">
+                        <div class="account-card-header">
+                            <div class="account-card-title">
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--primary)" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+                                <span>Security</span>
+                            </div>
+                        </div>
+
+                        <div style="display: flex; flex-direction: column; gap: 1.25rem;">
+                            <div class="flex justify-between items-center">
+                                <div>
+                                    <div style="font-weight: 600; color: var(--text-primary);">Password</div>
+                                    <div style="font-size: 0.85rem; color: var(--text-secondary);">Last updated 2 months ago</div>
+                                </div>
+                                <button type="button" class="btn btn-secondary btn-sm" onclick="window.UI.showToast('Password reset link sent to email', 'info')">
+                                    Change Password
+                                </button>
+                            </div>
+
+                            <div style="border-top: 1px solid var(--border); padding-top: 1.25rem;" class="flex justify-between items-center">
+                                <div>
+                                    <div style="font-weight: 600; color: var(--text-primary);">Sign out of all sessions</div>
+                                    <div style="font-size: 0.85rem; color: var(--text-secondary);">Terminate active session on this device</div>
+                                </div>
+                                <button type="button" class="btn btn-outline btn-sm action-logout" style="border-color: var(--danger); color: var(--danger);">
+                                    Logout
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <!-- Footer -->
+        <footer class="app-footer">
+            <div class="container">
+                <div class="footer-bottom">
+                    <p class="footer-disclaimer">Prescript AI assists users in reading prescriptions. It does not diagnose diseases or prescribe medication. Always verify unclear information with a doctor or pharmacist.</p>
+                    <p class="footer-copyright">&copy; 2026 Prescript AI. All rights reserved.</p>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <!-- Scripts -->
+    <script src="../js/mock-data.js"></script>
+    <script src="../js/api.js"></script>
+    <script src="../js/ui.js"></script>
+    <script src="../js/theme.js"></script>
+    <script src="../js/navigation.js"></script>
+    <script src="../js/app.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', async () => {
+            try {
+                const profile = await window.ApiService.getUserProfile();
+                document.getElementById('profile-name').textContent = profile.fullName;
+                document.getElementById('profile-email').textContent = profile.email;
+
+                const quota = await window.ApiService.getUserQuota();
+                document.getElementById('account-plan-name').textContent = quota.name;
+                document.getElementById('account-plan-limit').textContent = `${quota.uploadsLimit} scans / 24 hours`;
+                document.getElementById('account-quota-ratio').textContent = `${quota.uploadsUsed} / ${quota.uploadsLimit} used`;
+                
+                const percent = Math.min(100, Math.round((quota.uploadsUsed / quota.uploadsLimit) * 100));
+                document.getElementById('account-quota-bar').style.width = percent + '%';
+            } catch(e) {
+                console.error(e);
+            }
+        });
+    </script>
+</body>
+</html>

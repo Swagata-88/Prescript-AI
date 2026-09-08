@@ -1,0 +1,122 @@
+/* ==========================================================================
+   PRESCRIPT AI — HISTORY PAGE STYLES
+   ========================================================================== */
+
+.history-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 2rem;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.history-toolbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 1.5rem;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.history-search-wrapper {
+    position: relative;
+    flex: 1;
+    max-width: 420px;
+}
+
+.history-search-input {
+    width: 100%;
+    padding: 0.65rem 1rem 0.65rem 2.4rem;
+    font-size: 0.9375rem;
+    background-color: var(--white);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-sm);
+    color: var(--text-primary);
+}
+
+.history-search-icon {
+    position: absolute;
+    left: 0.85rem;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--text-light);
+    pointer-events: none;
+}
+
+.history-filter-pills {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.filter-pill {
+    padding: 0.45rem 0.85rem;
+    font-size: 0.825rem;
+    font-weight: 500;
+    border-radius: var(--radius-full);
+    border: 1px solid var(--border);
+    background-color: var(--white);
+    color: var(--text-secondary);
+    cursor: pointer;
+    transition: all var(--transition-fast);
+}
+
+.filter-pill:hover {
+    border-color: var(--primary);
+    color: var(--primary-deep);
+}
+
+.filter-pill.active {
+    background-color: var(--surface-soft);
+    border-color: var(--primary);
+    color: var(--primary-deep);
+    font-weight: 600;
+}
+
+/* History Records Table / Cards */
+.history-table-container {
+    background-color: var(--white);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-sm);
+    overflow: hidden;
+}
+
+.history-table {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: left;
+}
+
+.history-table th {
+    padding: 0.95rem 1.25rem;
+    font-size: 0.775rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--text-light);
+    background-color: var(--surface);
+    border-bottom: 1px solid var(--border);
+}
+
+.history-table td {
+    padding: 1.1rem 1.25rem;
+    font-size: 0.925rem;
+    color: var(--text-primary);
+    border-bottom: 1px solid var(--border);
+    vertical-align: middle;
+}
+
+.history-table tbody tr {
+    transition: background-color var(--transition-fast);
+}
+
+.history-table tbody tr:hover {
+    background-color: var(--surface);
+}
+
+.history-table tbody tr:last-child td {
+    border-bottom: none;
+}

@@ -1,0 +1,215 @@
+/* ==========================================================================
+   PRESCRIPT AI — UPLOAD PAGE STYLES
+   ========================================================================== */
+
+.upload-page-container {
+    max-width: 740px;
+    margin: 0 auto;
+}
+
+.upload-header {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.upload-header h1 {
+    margin-bottom: 0.5rem;
+}
+
+/* Quota Notice Card */
+.upload-quota-banner {
+    background-color: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-md);
+    padding: 0.85rem 1.25rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 1.5rem;
+    font-size: 0.875rem;
+}
+
+.upload-quota-info {
+    display: flex;
+    align-items: center;
+    gap: 0.65rem;
+}
+
+/* Drop Zone Area */
+.drop-zone {
+    background-color: var(--white);
+    border: 2px dashed var(--border);
+    border-radius: var(--radius-lg);
+    padding: 3.5rem 2rem;
+    text-align: center;
+    cursor: pointer;
+    transition: all var(--transition-normal);
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 280px;
+}
+
+.drop-zone:hover, .drop-zone.dragover {
+    border-color: var(--primary);
+    background-color: var(--surface-soft);
+    transform: scale(1.005);
+}
+
+.drop-zone-icon {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background-color: var(--surface-soft);
+    color: var(--primary-deep);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1.25rem;
+    transition: transform var(--transition-fast);
+}
+
+.drop-zone:hover .drop-zone-icon {
+    transform: translateY(-2px);
+    background-color: var(--white);
+}
+
+.drop-zone-title {
+    font-size: 1.15rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: 0.35rem;
+}
+
+.drop-zone-browse {
+    color: var(--primary-dark);
+    text-decoration: underline;
+    font-weight: 600;
+}
+
+.drop-zone-formats {
+    font-size: 0.8rem;
+    color: var(--text-light);
+    margin-top: 0.75rem;
+    letter-spacing: 0.04em;
+}
+
+/* Hidden File Input */
+.file-input-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    border: 0;
+}
+
+/* Selected File Preview Box */
+.selected-file-box {
+    display: none;
+    background-color: var(--white);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-md);
+    padding: 1.25rem 1.5rem;
+    margin-top: 1.5rem;
+    box-shadow: var(--shadow-sm);
+}
+
+.selected-file-box.visible {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+    animation: toast-in 0.2s ease-out forwards;
+}
+
+.file-info-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.file-identity {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.file-type-icon {
+    width: 44px;
+    height: 44px;
+    border-radius: var(--radius-sm);
+    background-color: var(--surface-soft);
+    border: 1px solid var(--border);
+    color: var(--primary-deep);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.file-name-text {
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    word-break: break-all;
+}
+
+.file-size-text {
+    font-size: 0.8rem;
+    color: var(--text-light);
+}
+
+.file-status-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    font-size: 0.8rem;
+    color: #2F694B;
+    background-color: var(--success-bg);
+    border: 1px solid var(--success-border);
+    padding: 4px 10px;
+    border-radius: var(--radius-full);
+    font-weight: 500;
+}
+
+.upload-action-bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: 1.25rem;
+    border-top: 1px solid var(--border);
+}
+
+/* Inline Error Message */
+.upload-error-box {
+    display: none;
+    background-color: var(--danger-bg);
+    border: 1px solid var(--danger-border);
+    border-radius: var(--radius-sm);
+    padding: 0.85rem 1rem;
+    color: var(--danger);
+    font-size: 0.875rem;
+    margin-top: 1rem;
+    align-items: center;
+    gap: 0.65rem;
+}
+
+.upload-error-box.visible {
+    display: flex;
+}
+
+/* Sample Prescription Quick Action */
+.demo-quick-sample {
+    margin-top: 1.5rem;
+    padding: 1rem;
+    background-color: var(--surface);
+    border: 1px dashed var(--border);
+    border-radius: var(--radius-md);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 0.875rem;
+}

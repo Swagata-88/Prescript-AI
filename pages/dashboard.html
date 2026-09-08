@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard — Prescript AI</title>
+    <link rel="icon" type="image/svg+xml" href="../assets/logo/logo.svg">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="../css/variables.css">
+    <link rel="stylesheet" href="../css/reset.css">
+    <link rel="stylesheet" href="../css/base.css">
+    <link rel="stylesheet" href="../css/components.css">
+    <link rel="stylesheet" href="../css/navbar.css">
+    <link rel="stylesheet" href="../css/dashboard.css">
+    <link rel="stylesheet" href="../css/responsive.css">
+    <link rel="stylesheet" href="../css/dark-mode.css">
+</head>
+<body>
+    <div class="page-wrapper">
+        <!-- Authenticated Navbar -->
+        <header class="navbar">
+            <div class="container navbar-inner">
+                <a href="dashboard.html" class="nav-brand">
+                    <div class="brand-icon">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M12 4v16M4 12h16"/></svg>
+                    </div>
+                    <span class="brand-name">Prescript <span style="color: var(--primary);">AI</span></span>
+                </a>
+
+                <nav>
+                    <ul class="nav-menu">
+                        <li><a href="dashboard.html" class="nav-link active">Dashboard</a></li>
+                        <li><a href="upload.html" class="nav-link">Upload</a></li>
+                        <li><a href="history.html" class="nav-link">History</a></li>
+                        <li><a href="pricing.html" class="nav-link">Pricing</a></li>
+                    </ul>
+                </nav>
+
+                <div class="nav-actions">
+                    <!-- Theme Toggle -->
+                    <button class="theme-toggle-btn" aria-label="Toggle Theme">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+                    </button>
+
+                    <!-- User Profile Dropdown -->
+                    <div class="user-menu-wrapper">
+                        <button class="user-menu-btn" aria-label="User account menu">
+                            <span class="user-avatar">SR</span>
+                            <span class="user-name-label">Swagata</span>
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+                        </button>
+                        <div class="user-dropdown">
+                            <div class="dropdown-header">
+                                <div class="dropdown-user-name">Dr. Swagata Roy</div>
+                                <div class="dropdown-user-email">swagata.roy@prescriptai.org</div>
+                            </div>
+                            <a href="account.html" class="dropdown-item">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+                                Account Settings
+                            </a>
+                            <a href="pricing.html" class="dropdown-item">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="5" width="20" height="14" rx="2"/><line x1="2" y1="10" x2="22" y2="10"/></svg>
+                                Subscription Plan
+                            </a>
+                            <a href="help.html" class="dropdown-item">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+                                Help &amp; FAQs
+                            </a>
+                            <div class="dropdown-divider"></div>
+                            <a href="#" class="dropdown-item action-logout" style="color: var(--danger);">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" y1="12" x2="9" y2="12"/></svg>
+                                Sign Out
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Mobile Menu Button -->
+                    <button class="mobile-nav-toggle" aria-label="Open Navigation Menu">
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Mobile Drawer -->
+            <div class="mobile-menu-drawer">
+                <div class="mobile-menu-links">
+                    <a href="dashboard.html" class="nav-link active">Dashboard</a>
+                    <a href="upload.html" class="nav-link">Upload</a>
+                    <a href="history.html" class="nav-link">History</a>
+                    <a href="pricing.html" class="nav-link">Pricing</a>
+                    <a href="account.html" class="nav-link">Account</a>
+                    <a href="help.html" class="nav-link">Help</a>
+                </div>
+                <div class="mobile-menu-actions">
+                    <a href="#" class="btn btn-secondary w-full action-logout">Sign Out</a>
+                </div>
+            </div>
+        </header>
+
+        <main class="main-content">
+            <div class="container section-sm">
+                <!-- Header -->
+                <div class="dashboard-header">
+                    <h1 class="text-page-title">Welcome back 👋</h1>
+                    <p class="text-body" style="margin-top: 0.25rem;">Make your prescription easier to understand.</p>
+                </div>
+
+                <!-- Primary Action & Usage Grid -->
+                <div class="dashboard-grid">
+                    <!-- Primary Upload Card -->
+                    <div class="upload-cta-card">
+                        <div class="upload-cta-content">
+                            <span class="eyebrow" style="margin-bottom: 0.65rem;">NEW PRESCRIPTION SCAN</span>
+                            <h2>Upload a prescription</h2>
+                            <p>Upload a handwritten prescription and let Prescript AI extract the readable information.</p>
+                        </div>
+                        <div>
+                            <a href="upload.html" class="btn btn-primary btn-lg">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+                                + Upload Prescription
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Usage Card -->
+                    <div class="usage-card" id="quota-card-container">
+                        <div>
+                            <div class="usage-header">
+                                <span class="text-label">Current Plan</span>
+                                <span class="plan-badge" id="plan-name-label">Free Plan</span>
+                            </div>
+                            <div class="usage-numbers">
+                                <span class="usage-main-number" id="uploads-used-label">1</span>
+                                <span class="usage-total-number">/ <span id="uploads-limit-label">2</span> uploads used</span>
+                            </div>
+                            <!-- Progress Bar -->
+                            <div class="progress-bar-container">
+                                <div class="progress-bar-fill" id="quota-progress-bar" style="width: 50%;"></div>
+                            </div>
+                            <div class="usage-remaining-text" id="uploads-remaining-label">
+                                1 upload remaining (resets in 24h)
+                            </div>
+                        </div>
+                        <div style="margin-top: 1.25rem; padding-top: 1rem; border-top: 1px solid var(--border);">
+                            <a href="pricing.html" class="btn btn-secondary btn-sm w-full" style="justify-content: space-between;">
+                                <span>Upgrade for more daily scans</span>
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Recent Prescriptions -->
+                <div class="section-sm" style="padding-top: 0;">
+                    <div class="recent-header">
+                        <h2 class="text-section-title">Recent prescriptions</h2>
+                        <a href="history.html" class="btn btn-ghost btn-sm" style="color: var(--primary-deep); font-weight: 600;">
+                            View all history &rarr;
+                        </a>
+                    </div>
+
+                    <!-- Recent Prescriptions List -->
+                    <div class="recent-list" id="recent-rx-list">
+                        <!-- Populated by JavaScript from Mock Data/API -->
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <!-- Footer -->
+        <footer class="app-footer">
+            <div class="container">
+                <div class="footer-bottom">
+                    <p class="footer-disclaimer">Prescript AI assists users in reading prescriptions. It does not diagnose diseases or prescribe medication. Always verify unclear information with a doctor or pharmacist.</p>
+                    <p class="footer-copyright">&copy; 2026 Prescript AI. All rights reserved.</p>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <!-- Scripts -->
+    <script src="../js/mock-data.js"></script>
+    <script src="../js/api.js"></script>
+    <script src="../js/ui.js"></script>
+    <script src="../js/theme.js"></script>
+    <script src="../js/navigation.js"></script>
+    <script src="../js/app.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', async () => {
+            // Load Quota
+            try {
+                const quota = await window.ApiService.getUserQuota();
+                document.getElementById('plan-name-label').textContent = quota.name;
+                document.getElementById('uploads-used-label').textContent = quota.uploadsUsed;
+                document.getElementById('uploads-limit-label').textContent = quota.uploadsLimit;
+                
+                const percent = Math.min(100, Math.round((quota.uploadsUsed / quota.uploadsLimit) * 100));
+                document.getElementById('quota-progress-bar').style.width = percent + '%';
+                
+                const remaining = Math.max(0, quota.uploadsLimit - quota.uploadsUsed);
+                document.getElementById('uploads-remaining-label').textContent = `${remaining} upload${remaining === 1 ? '' : 's'} remaining`;
+            } catch(e) {
+                console.error(e);
+            }
+
+            // Load Recent Prescriptions
+            try {
+                const history = await window.ApiService.getPrescriptionHistory();
+                const container = document.getElementById('recent-rx-list');
+                container.innerHTML = '';
+
+                // Show top 3 recent items
+                const recentItems = history.slice(0, 3);
+                recentItems.forEach(rx => {
+                    const isWarning = rx.status.toLowerCase().includes('verification');
+                    const badgeClass = isWarning ? 'badge-warning' : 'badge-success';
+                    
+                    const card = document.createElement('div');
+                    card.className = 'prescription-row-card';
+                    card.innerHTML = `
+                        <div class="rx-info-group">
+                            <div class="rx-icon-avatar">℞</div>
+                            <div>
+                                <div class="rx-id-text">${rx.id}</div>
+                                <div class="rx-meta-sub">
+                                    <span>${rx.date}</span>
+                                    <span>${rx.doctor}</span>
+                                    <span>${rx.medicinesCount} medicines</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="rx-status-actions">
+                            <span class="badge ${badgeClass}">
+                                <span class="badge-dot"></span>
+                                ${rx.status}
+                            </span>
+                            <a href="result.html?id=${rx.id}" class="btn btn-secondary btn-sm">
+                                View Result
+                            </a>
+                        </div>
+                    `;
+                    container.appendChild(card);
+                });
+            } catch(e) {
+                console.error(e);
+            }
+        });
+    </script>
+</body>
+</html>
