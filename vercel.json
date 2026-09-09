@@ -1,20 +1,24 @@
-﻿{
+{
   "version": 2,
-  "functions": {
-    "server.js": {
-      "includeFiles": [
-        "css/**",
-        "js/**",
-        "pages/**",
-        "assets/**",
-        "index.html"
-      ]
-    }
-  },
-  "rewrites": [
+  "builds": [
     {
-      "source": "/(.*)",
-      "destination": "/server.js"
+      "src": "server.js",
+      "use": "@vercel/node",
+      "config": {
+        "includeFiles": [
+          "css/**",
+          "js/**",
+          "pages/**",
+          "assets/**",
+          "index.html"
+        ]
+      }
+    }
+  ],
+  "routes": [
+    {
+      "src": "/(.*)",
+      "dest": "server.js"
     }
   ]
 }
