@@ -73,10 +73,11 @@ async function analyzePrescriptionImage(imageBuffer, mimeType, originalFileName)
 
     const base64Data = imageBuffer.toString("base64");
     
-    // Priority order of vision models for fallback cascade
-    const configuredModel = process.env.GEMINI_MODEL || "gemini-2.5-flash";
+    // Priority order of vision models for fallback cascade (gemini-3.6-flash primary)
+    const configuredModel = process.env.GEMINI_MODEL || "gemini-3.6-flash";
     const candidateModels = Array.from(new Set([
         configuredModel,
+        "gemini-3.6-flash",
         "gemini-2.5-flash",
         "gemini-2.0-flash",
         "gemini-1.5-flash"
