@@ -38,7 +38,28 @@ CRITICAL MEDICAL SAFETY RULES:
 9. Return ONLY a valid JSON object strictly matching this schema. Do NOT include markdown code fences, backticks, or any commentary outside the JSON.`;
 
 /**
- * Call Gemini API with multimodal image payload
+ * Helper to check if an error from Gemini is transient (retryable or trigger fallback)
+ */
+function isTransientGeminiError(status, message) {
+    const msg = (message || "").toLowerCase();
+    return (
+        status === 503 ||
+        status === 429 ||
+        status === 500 ||
+        msg.includes("high demand") ||
+        msg.includes("overloaded") ||
+        msg.includes("spikes in demand") ||
+        msg.includes("resource_exhausted") ||
+        msg.includes("unavailable") ||
+        msg.includes("rate limit") ||
+        msg.includes("temporarily")
+    );
+}
+
+const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
+
+/**
+ * Call Gemini API with multimodal image payload, including automatic retries and model cascading
  * @param {Buffer} imageBuffer 
  * @param {string} mimeType 
  * @param {string} originalFileName 
@@ -51,59 +72,110 @@ async function analyzePrescriptionImage(imageBuffer, mimeType, originalFileName)
     }
 
     const base64Data = imageBuffer.toString("base64");
-    const model = process.env.GEMINI_MODEL || "gemini-3.6-flash";
+    
+    // Priority order of vision models for fallback cascade
+    const configuredModel = process.env.GEMINI_MODEL || "gemini-2.5-flash";
+    const candidateModels = Array.from(new Set([
+        configuredModel,
+        "gemini-2.5-flash",
+        "gemini-2.0-flash",
+        "gemini-1.5-flash"
+    ]));
 
-    try {
-        const url = `${GEMINI_API_BASE}/${model}:generateContent?key=${apiKey.trim()}`;
-        
-        const requestBody = {
-            contents: [
-                {
-                    parts: [
-                        { text: CLINICAL_SYSTEM_PROMPT },
-                        {
-                            inline_data: {
-                                mime_type: mimeType,
-                                data: base64Data
-                            }
-                        },
-                        {
-                            text: `Extract all readable patient, doctor, date, and medicine information from this prescription image (${originalFileName}). Return strictly JSON.`
+    const requestBody = {
+        contents: [
+            {
+                parts: [
+                    { text: CLINICAL_SYSTEM_PROMPT },
+                    {
+                        inline_data: {
+                            mime_type: mimeType,
+                            data: base64Data
                         }
-                    ]
-                }
-            ],
-            generationConfig: {
-                temperature: 0.1,
-                response_mime_type: "application/json"
+                    },
+                    {
+                        text: `Extract all readable patient, doctor, date, and medicine information from this prescription image (${originalFileName}). Return strictly JSON.`
+                    }
+                ]
             }
-        };
-
-        const response = await fetch(url, {
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify(requestBody)
-        });
-
-        if (!response.ok) {
-            const errorData = await response.json().catch(() => ({}));
-            const errorMessage = errorData.error?.message || `HTTP ${response.status} ${response.statusText}`;
-            throw new Error(`Gemini API error (${model}): ${errorMessage}`);
+        ],
+        generationConfig: {
+            temperature: 0.1,
+            response_mime_type: "application/json"
         }
+    };
 
-        const responseData = await response.json();
-        const textContent = responseData.candidates?.[0]?.content?.parts?.[0]?.text;
+    let lastError = null;
 
-        if (!textContent) {
-            throw new Error("AI model returned an empty response.");
+    for (let mIdx = 0; mIdx < candidateModels.length; mIdx++) {
+        const model = candidateModels[mIdx];
+        const maxRetries = 2; // Up to 2 retries (3 attempts total per model)
+
+        for (let attempt = 0; attempt <= maxRetries; attempt++) {
+            try {
+                if (attempt > 0) {
+                    const delay = attempt === 1 ? 1500 : 3000;
+                    console.log(`[Prescript AI] Retrying model ${model} (attempt ${attempt + 1}/${maxRetries + 1}) after ${delay}ms...`);
+                    await sleep(delay);
+                }
+
+                const url = `${GEMINI_API_BASE}/${model}:generateContent?key=${apiKey.trim()}`;
+                const response = await fetch(url, {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify(requestBody)
+                });
+
+                if (!response.ok) {
+                    const errorData = await response.json().catch(() => ({}));
+                    const errorMessage = errorData.error?.message || `HTTP ${response.status} ${response.statusText}`;
+
+                    if (isTransientGeminiError(response.status, errorMessage)) {
+                        lastError = new Error(`Gemini API (${model}): ${errorMessage}`);
+                        if (attempt < maxRetries) {
+                            continue;
+                        }
+                        if (mIdx < candidateModels.length - 1) {
+                            console.warn(`[Prescript AI Warning] Model ${model} unavailable due to demand. Failing over to ${candidateModels[mIdx + 1]}...`);
+                            break;
+                        }
+                    }
+
+                    // Non-transient error (e.g. 401 invalid API key, 400 bad request)
+                    throw new Error(`Gemini API error (${model}): ${errorMessage}`);
+                }
+
+                const responseData = await response.json();
+                const textContent = responseData.candidates?.[0]?.content?.parts?.[0]?.text;
+
+                if (!textContent) {
+                    throw new Error("AI model returned an empty response.");
+                }
+
+                const parsedData = parseGeminiJsonResponse(textContent);
+                return formatPrescriptionResponse(parsedData, originalFileName);
+
+            } catch (err) {
+                const isNetworkError = err.name === "FetchError" || err.message.includes("fetch failed") || err.message.includes("ECONNRESET");
+                if (isNetworkError && attempt < maxRetries) {
+                    lastError = err;
+                    continue;
+                }
+
+                if (!isTransientGeminiError(0, err.message)) {
+                    throw err;
+                }
+
+                lastError = err;
+                if (attempt === maxRetries && mIdx < candidateModels.length - 1) {
+                    console.warn(`[Prescript AI Warning] Exhausted attempts for ${model}. Cascading to ${candidateModels[mIdx + 1]}...`);
+                    break;
+                }
+            }
         }
-
-        const parsedData = parseGeminiJsonResponse(textContent);
-        return formatPrescriptionResponse(parsedData, originalFileName);
-
-    } catch (err) {
-        throw err;
     }
+
+    throw lastError || new Error("All AI vision models are currently experiencing high demand. Please try again in a few moments.");
 }
 
 /**
