@@ -73,14 +73,14 @@ async function analyzePrescriptionImage(imageBuffer, mimeType, originalFileName)
 
     const base64Data = imageBuffer.toString("base64");
     
-    // Priority order of vision models for fallback cascade (gemini-3.6-flash primary)
+    // Priority order of verified active vision models for fallback cascade (gemini-3.6-flash primary)
     const configuredModel = process.env.GEMINI_MODEL || "gemini-3.6-flash";
     const candidateModels = Array.from(new Set([
         configuredModel,
         "gemini-3.6-flash",
-        "gemini-2.5-flash",
-        "gemini-2.0-flash",
-        "gemini-1.5-flash"
+        "gemini-3.7-flash",
+        "gemini-3.5-flash",
+        "gemini-flash-latest"
     ]));
 
     const requestBody = {
@@ -131,18 +131,24 @@ async function analyzePrescriptionImage(imageBuffer, mimeType, originalFileName)
                     const errorData = await response.json().catch(() => ({}));
                     const errorMessage = errorData.error?.message || `HTTP ${response.status} ${response.statusText}`;
 
-                    if (isTransientGeminiError(response.status, errorMessage)) {
-                        lastError = new Error(`Gemini API (${model}): ${errorMessage}`);
-                        if (attempt < maxRetries) {
-                            continue;
-                        }
-                        if (mIdx < candidateModels.length - 1) {
-                            console.warn(`[Prescript AI Warning] Model ${model} unavailable due to demand. Failing over to ${candidateModels[mIdx + 1]}...`);
-                            break;
-                        }
+                    // Fatal authentication error: API key is invalid across all models
+                    if (response.status === 401 || errorMessage.toLowerCase().includes("api key not valid")) {
+                        throw new Error(`Gemini API key error: ${errorMessage}`);
                     }
 
-                    // Non-transient error (e.g. 401 invalid API key, 400 bad request)
+                    lastError = new Error(`Gemini API (${model}): ${errorMessage}`);
+
+                    // Transient load/rate-limit error: retry current model if attempts remain
+                    if (isTransientGeminiError(response.status, errorMessage) && attempt < maxRetries) {
+                        continue;
+                    }
+
+                    // If model is busy, deprecated, or unavailable, cascade to next available model
+                    if (mIdx < candidateModels.length - 1) {
+                        console.warn(`[Prescript AI Warning] Model ${model} returned error (${errorMessage}). Failing over to ${candidateModels[mIdx + 1]}...`);
+                        break; // Break attempt loop to try next model in candidateModels
+                    }
+
                     throw new Error(`Gemini API error (${model}): ${errorMessage}`);
                 }
 
@@ -157,19 +163,21 @@ async function analyzePrescriptionImage(imageBuffer, mimeType, originalFileName)
                 return formatPrescriptionResponse(parsedData, originalFileName);
 
             } catch (err) {
+                // If it's a fatal API key error, rethrow immediately
+                if (err.message.includes("API key not valid") || err.message.includes("Gemini API key error")) {
+                    throw err;
+                }
+
                 const isNetworkError = err.name === "FetchError" || err.message.includes("fetch failed") || err.message.includes("ECONNRESET");
                 if (isNetworkError && attempt < maxRetries) {
                     lastError = err;
                     continue;
                 }
 
-                if (!isTransientGeminiError(0, err.message)) {
-                    throw err;
-                }
-
                 lastError = err;
-                if (attempt === maxRetries && mIdx < candidateModels.length - 1) {
-                    console.warn(`[Prescript AI Warning] Exhausted attempts for ${model}. Cascading to ${candidateModels[mIdx + 1]}...`);
+                // If retries exhausted on this model, failover to next model
+                if (mIdx < candidateModels.length - 1) {
+                    console.warn(`[Prescript AI Warning] Model ${model} encountered error. Cascading to ${candidateModels[mIdx + 1]}...`);
                     break;
                 }
             }
