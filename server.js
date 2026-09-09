@@ -132,16 +132,6 @@ app.post("/api/prescriptions/analyze", (req, res) => {
         }
     });
 });
-app.get("/api/debug-files", (req, res) => {
-    res.json({
-        dirname: __dirname,
-        cwd: process.cwd(),
-        cssExists: require("fs").existsSync(
-            path.join(__dirname, "css", "variables.css")
-        ),
-        cssPath: path.join(__dirname, "css", "variables.css")
-    });
-});
 // NOTE: Static file serving is registered AFTER API routes intentionally.
 // express.static only handles GET/HEAD — registering it first causes 405 on POST /api/* routes.
 app.use(express.static(path.resolve(__dirname)));
@@ -160,13 +150,17 @@ app.use((err, req, res, next) => {
     });
 });
 
-// Start listening
-app.listen(PORT, () => {
-    const model = process.env.GEMINI_MODEL || "gemini-3.6-flash";
-    console.log(`\n======================================================`);
-    console.log(` Prescript AI Server running on http://localhost:${PORT}`);
-    console.log(` Multimodal AI Endpoint: http://localhost:${PORT}/api/prescriptions/analyze`);
-    console.log(` Gemini Vision Model: ${model}`);
-    console.log(` Gemini API Key: ${process.env.GEMINI_API_KEY ? "CONFIGURED (Server-side)" : "NOT SET (Add to .env)"}`);
-    console.log(`======================================================\n`);
-});
+// Start listening when executed directly (local development)
+if (require.main === module) {
+    app.listen(PORT, () => {
+        const model = process.env.GEMINI_MODEL || "gemini-3.6-flash";
+        console.log(`\n======================================================`);
+        console.log(` Prescript AI Server running on http://localhost:${PORT}`);
+        console.log(` Multimodal AI Endpoint: http://localhost:${PORT}/api/prescriptions/analyze`);
+        console.log(` Gemini Vision Model: ${model}`);
+        console.log(` Gemini API Key: ${process.env.GEMINI_API_KEY ? "CONFIGURED (Server-side)" : "NOT SET (Add to .env)"}`);
+        console.log(`======================================================\n`);
+    });
+}
+
+module.exports = app;
